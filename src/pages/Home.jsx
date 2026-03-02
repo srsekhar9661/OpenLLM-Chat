@@ -1,10 +1,12 @@
 import React from "react";
 import "./Home.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Home() {
     const [apikey, setApikey] = useState('');
+    const navigate = useNavigate();
 
     const handleAPIKey = () => {
         if (!apikey){
@@ -12,6 +14,7 @@ function Home() {
         }
         sessionStorage.setItem('API_KEY', apikey);
         alert('api key is stored with in the session storage, now you can start chatting.')
+        navigate('/chat');
     }
   return (
     <div className="home-container">
